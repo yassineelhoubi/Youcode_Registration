@@ -45,15 +45,22 @@
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Register</h4>
-							<form class="my-login-validation" novalidate="">
-								<div class="form-group">
-									<label for="name">Name</label>
-									<input id="name" type="text" class="form-control" name="name" required autofocus>
+							<form class="row my-login-validation" novalidate="">
+									<div class="col-md-6">
+										<label for="firstName">Firs tName</label>
+									<input id="firstName" type="text" class="form-control" FirstName="firstName" required autofocus>
 									<div class="invalid-feedback">
-										What's your name?
+										What's your First Name?
 									</div>
-								</div>
-
+									</div>
+									<div class="col-md-6">
+										<label for="lastName">lastName</label>
+									<input id="lastName" type="lastName" class="form-control" name="lastName" required data-eye>
+									<div class="invalid-feedback">
+										last Name is required
+									</div>
+									</div>
+									
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
 									<input id="email" type="email" class="form-control" name="email" required>
@@ -62,11 +69,25 @@
 									</div>
 								</div>
 
-								<div class="form-group">
-									<label for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+								<div class="col-md-6">
+									<label for="age">Age</label>
+									<input id="age" type="age" class="form-control" name="age" required data-eye>
 									<div class="invalid-feedback">
-										Password is required
+										age is required
+									</div>
+								</div>
+								<div class="col-md-6">
+									<label for="CIN">CIN</label>
+									<input id="CIN" type="CIN" class="form-control" name="CIN" required data-eye>
+									<div class="invalid-feedback">
+										CIN is required
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="nbrPhone">number Phone</label>
+									<input id="nbrPhone" type="nbrPhone" class="form-control" name="nbrPhone" required data-eye>
+									<div class="invalid-feedback">
+										number Phone is required
 									</div>
 								</div>
 
@@ -86,7 +107,7 @@
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Already have an account? <a href="index.html">Login</a>
+									Already have an account? <a href="login.html">Login</a>
 								</div>
 							</form>
 						</div>
