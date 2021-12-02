@@ -1,48 +1,6 @@
-users = [];
-class User {
-    constructor(lName, fName, email, UserLogin, password) {
-        this.lName = lName;
-        this.fName = fName;
-        this.email = email;
-        this.UserLogin = UserLogin;
-        this.password = password;
-        this.role = "candidate";
-    }
 
-    login() {
 
-    }
-
-    logout() {
-
-    }
-
-}
-
-class Candidate extends User {
-    constructor(cin, age, lName, fName, email, UserLogin, password) {
-        super(lName, fName, email, UserLogin, password)
-        // this.lName = lName
-        this.cin = cin;
-        this.age = age
-        this.lName = lName
-    }
-
-    register() {
-        let obj = {
-            cin: this.cin,
-            age: this.age,
-            lName: this.lName,
-            fName: this.fName,
-            email: this.email,
-            UserLogin: this.UserLogin,
-            password: this.password,
-            cin: this.cin,
-        }
-
-        return obj
-    }
-}
+import Candidate from "./Candidate.js";
 
 /* submit registration form */
 const form = document.querySelector('.register')
@@ -70,8 +28,9 @@ form.addEventListener('submit', (e) => {
             const password = `${Math.random()
                 .toString(36)
                 .substr(2, 6)}`;
-            newCandidate = new Candidate(cin, age, lName, fName, email, UserLogin, password)
-            obj = newCandidate.register()
+            const newCandidate = new Candidate(cin, age, lName, fName, email, UserLogin, password)
+           
+            const obj = newCandidate.register()
             Swal.fire({
                 title: 'Do you want to save your info?',
                 html: `Your Login :${UserLogin}<br>Your Password:${password}`,
