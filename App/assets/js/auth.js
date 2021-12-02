@@ -1,3 +1,4 @@
+users = [];
 class User {
     constructor(lName, fName, email, UserLogin, password) {
         this.lName = lName;
@@ -29,14 +30,14 @@ class Candidate extends User {
 
     register() {
         let obj = {
-            cin : this.cin,
-            age : this.age,
-            lName : this.lName,
-            fName : this.fName,
-            email : this.email,
-            UserLogin : this.UserLogin,
-            password : this.password,
-            cin : this.cin,
+            cin: this.cin,
+            age: this.age,
+            lName: this.lName,
+            fName: this.fName,
+            email: this.email,
+            UserLogin: this.UserLogin,
+            password: this.password,
+            cin: this.cin,
         }
 
         return obj
@@ -45,12 +46,12 @@ class Candidate extends User {
 
 const form = document.querySelector('.register')
 form.addEventListener('submit', (e) => {
-    e.preventDefault() ;
+    e.preventDefault();
     const email = form.email.value;
-    const cin = form.cin.value ;
-    const age = form.age.value ;
-    const lName = form.lName.value ;
-    const fName = form.fName.value ;
+    const cin = form.cin.value;
+    const age = form.age.value;
+    const lName = form.lName.value;
+    const fName = form.fName.value;
     const UserLogin = `${Math.random()
         .toString(36)
         .substr(3, 4)}`;
@@ -59,13 +60,27 @@ form.addEventListener('submit', (e) => {
         .substr(2, 6)}`;
     test = new Candidate(cin, age, lName, fName, email, UserLogin, password)
     obj = test.register()
-    fetch("http://localhost:3000/users/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(obj),
-      });
-    console.log(obj)
+    Swal.fire({
+        title: 'Do you want to save your info?',
+        html: `Your Login :${UserLogin}<br>Your Password:${password}`,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            fetch("http://localhost:3000/users/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(obj),
+            });
+            Swal.fire('Saved!', '', 'success')
+            location.href = 'login.html';
+        } else if (result.isDenied) {
+            Swal.fire('Infos are not saved', '', 'info')
+        }
+    })
 })
-users = []
-
-
