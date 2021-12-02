@@ -1,8 +1,8 @@
 import  User  from './User.js'
 
 export default class Candidate extends User {
-    constructor(cin, age, lName, fName, email, UserLogin, password) {
-        super(lName, fName, email, UserLogin, password)
+    constructor(cin, age, lName, fName, email, Uid, password) {
+        super(lName, fName, email, Uid, password)
         // this.lName = lName
         this.cin = cin;
         this.age = age
@@ -16,9 +16,10 @@ export default class Candidate extends User {
             lName: this.lName,
             fName: this.fName,
             email: this.email,
-            UserLogin: this.UserLogin,
+            Uid: this.Uid,
             password: this.password,
             cin: this.cin,
+            role: this.role
         }
 
         return obj
