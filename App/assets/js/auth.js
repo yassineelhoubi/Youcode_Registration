@@ -123,29 +123,27 @@ if (loginForm) {
 
             await axios.get("http://localhost:3000/users/")
                 .then((res) => {
-                    var userLoged = false
-                    var responsibleLoged = false
+                    var userLogged = false
+                    var responsibleLogged = false
                     res.data.forEach(user => {
                         /* if candidate */
                         if ( user.Uid == Uid && user.password == password && user.role == "candidate" ){
-                            userLoged = true
+                            userLogged = true
+                            sessionStorage.setItem('Uid', Uid);
+                            sessionStorage.setItem('password', password)
                         } 
                         /* if responsible */
                         else if ( user.Uid == Uid && user.password == password && user.role == "responsible" ){
-                            responsibleLoged = true
+                            responsibleLogged = true
+                            sessionStorage.setItem('Uid', Uid);
+                            sessionStorage.setItem('password', password)
                         }
 
                     })
-                    console.log(userLoged, responsibleLoged)
-                    if (userLoged) {
-                        sessionStorage.setItem('Uid', Uid);
-                        sessionStorage.setItem('password', password)
-                        sessionStorage.setItem('role', 'candidate')
+                    /* redirect to the desired page Or just show an alert as data not valid */
+                    if (userLogged) {
                         location.href = 'test.html';
-                    } else if (responsibleLoged) {
-                        sessionStorage.setItem('Uid', Uid);
-                        sessionStorage.setItem('password', password)
-                        sessionStorage.setItem('role', 'responsible')
+                    } else if (responsibleLogged) {
                         location.href = 'responsible/main.html';
                     } else {
                         Swal.fire({
