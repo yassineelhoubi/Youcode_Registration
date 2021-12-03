@@ -1,4 +1,15 @@
 {
   "users": [
-  ]
+    {
+
+      "lName": "responsible",
+      "fName": "admin",
+      "email": "responsible@admin.com",
+      "Uid": "i649",
+      "password": "2kqt3z",
+      "role": "responsible",
+      "id": 1
+    }
+  ],
+  "result": []
 }
