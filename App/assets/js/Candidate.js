@@ -18,7 +18,6 @@ export default class Candidate extends User {
             email: this.email,
             Uid: this.Uid,
             password: this.password,
-            cin: this.cin,
             role: this.role
         }
 
