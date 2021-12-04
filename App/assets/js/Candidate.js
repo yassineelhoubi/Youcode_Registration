@@ -3,15 +3,12 @@ import User from './User.js';
 export default class Candidate extends User {
     constructor(cin, age, lName, fName, email, Uid, password) {
         super(lName, fName, email, Uid, password)
-        // this.lName = lName
         this.cin = cin;
         this.age = age
         this.lName = lName
     }
 
     async register() {
-
-
         /* check email if alredy exist */
         var emailExist = false
 
@@ -86,5 +83,19 @@ export default class Candidate extends User {
                 }
             })
         }
+    }
+    async getId (Uid , password) {
+        let id;
+        await axios.get("http://localhost:3000/users/")
+        .then((res) => {
+            res.data.forEach(user => {
+                if (user.Uid == Uid && user.password == password) {
+                    id = user.id
+                }
+            });
+
+        })
+        
+        return id
     }
 }

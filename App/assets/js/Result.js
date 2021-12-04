@@ -1,4 +1,4 @@
-export class Result {
+export default class Result {
     constructor(idUser, onlineTest, seriousGame, motivationTest, administrationTest1, administrationTest2, administrationTest3, technicalTest) {
         this.idUser = idUser;
         this.onlineTest = onlineTest;
@@ -12,6 +12,22 @@ export class Result {
     }
 
     add () {
+        const obj = {
+            idUser: this.idUser,
+            onlineTest: this.onlineTest,
+            seriousGame: this.seriousGame,
+            motivationTest: this.motivationTest,
+            administrationTest1: this.administrationTest1,
+            administrationTest2: this.administrationTest2,
+            administrationTest3: this.administrationTest3,
+            technicalTest: this.technicalTest,
+        }
         
+        axios.post("http://localhost:3000/result/", obj)
+        .then((res) => {
+
+            // download(obj, 'json.txt', 'text/plain')
+        }
+        );
     }
 }

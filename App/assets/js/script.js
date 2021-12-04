@@ -1,15 +1,19 @@
+import Candidate from "./Candidate.js";
+import  Result  from "./Result.js";
+
 const testForm = document.querySelector('.test2')
 if (testForm) {
     testForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const Serious = testForm.Serious.value;
-        const Motivation = testForm.Motivation.value;
-        const Administration1 = testForm.Administration1.value;
-        const Administration2 = testForm.Administration2.value;
-        const Administration3 = testForm.Administration3.value;
-        const tech = testForm.tech.value;
+        const seriousGame = testForm.Serious.value;
+        const motivationTest = testForm.Motivation.value;
+        const administrationTest1 = testForm.Administration1.value;
+        const administrationTest2 = testForm.Administration2.value;
+        const administrationTest3 = testForm.Administration3.value;
+        const technicalTest = testForm.tech.value;
         /* check data if null */
-        if (Serious == "" || Motivation == "" || Administration1 == "" || Administration2 == "" || Administration3 == "" || tech == "") {
+
+        if (seriousGame == "" || motivationTest == "" || administrationTest1 == "" || administrationTest2 == "" || administrationTest3 == "" || technicalTest == "") {
 
             Swal.fire({
                 icon: 'error',
@@ -19,29 +23,27 @@ if (testForm) {
             })
 
         } else {
-            let obj = {
-                Serious: Serious,
-                Motivation: Motivation,
-                Administration1: Administration1,
-                Administration2: Administration2,
-                Administration3: Administration3,
-                tech: tech,
+            /* brining the user ID and check if it logged */
+            const Uid = sessionStorage.getItem('Uid');
+            const password = sessionStorage.getItem('password')
+            const candidate = new Candidate();
+            const idUser = await candidate.getId (Uid, password)
+            if(idUser == undefined){
+                return document.location.href = './login.html'
             }
+
             Swal.fire({
                 title: 'Do you want to save your info?',
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: 'Save',
                 denyButtonText: `Don't save`,
-            }).then((result) => {
+            }).then(async (result) => {
                 /* confirmed */
                 if (result.isConfirmed) {
                     /* send data */
-
-                    axios.post("http://localhost:3000/result/", obj)
-                        .then(
-                            download(obj, 'json.txt', 'text/plain')
-                        );
+                    const result = new Result(idUser, true, seriousGame, motivationTest, administrationTest1, administrationTest2, administrationTest3, technicalTest)
+                    result.add()                    
                     /* Not confirmed */
                 } else if (result.isDenied) {
                     Swal.fire('Infos are not saved', '', 'info')
