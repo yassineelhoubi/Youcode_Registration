@@ -26,8 +26,8 @@ export default class Result {
         axios.post("http://localhost:3000/result/", obj)
         .then((res) => {
 
-            // download(obj, 'json.txt', 'text/plain')
         }
         );
     }
+
 }

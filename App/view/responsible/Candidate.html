@@ -13,9 +13,10 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="/node_modules/axios/dist/axios.min.js"></script>
     <script src="../../assets/js/isResponsible.js"></script>
+
 </head>
 
-<body>
+<body id="candidateTemp">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm" id="mainNav">
         <div class="container px-5">
@@ -49,43 +50,20 @@
                 <div class="col-12">
                     <table class="table table-hover">
                         <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">CIN</th>
-                            <th scope="col">Age</th>
-                          </tr>
+                            <tr onclick="">
+                                <th scope="col">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">CIN</th>
+                                <th scope="col">Age</th>
+                            </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>test@mdo.co</td>
-                            <td>YG654</td>
-                            <td>23</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>test@mdo.co</td>
-                            <td>YG654</td>
-                            <td>23</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>test@mdo.co</td>
-                            <td>YG654</td>
-                            <td>23</td>
-                          </tr>
+                        <tbody id="tbody">
+
 
                         </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>
@@ -106,8 +84,9 @@
     </footer>
     </div>
 
-
-
+    <script src="../../assets/js/downloadPdf.js"></script>
+    <script type="module" src="../../assets/js/script.js"></script>
+    <!-- <script type="text/javascript"> fetchCandidatePassTest()</script> -->
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 

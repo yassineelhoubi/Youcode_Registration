@@ -4,13 +4,12 @@
       "lName": "responsible",
       "fName": "admin",
       "email": "responsible@admin.com",
-      "Uid": "i649",
-      "password": "2kqt3z",
+      "Uid": "resp",
+      "password": "password",
       "role": "responsible",
       "id": 1
     }
   ],
   "result": [
-
   ]
 }

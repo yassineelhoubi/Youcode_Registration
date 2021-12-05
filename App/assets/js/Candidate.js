@@ -1,11 +1,10 @@
 import User from './User.js';
 
 export default class Candidate extends User {
-    constructor(cin, age, lName, fName, email, Uid, password) {
-        super(lName, fName, email, Uid, password)
+    constructor(cin, age, lName, fName, email, Uid, password, passTest) {
+        super(lName, fName, email, Uid, password , passTest)
         this.cin = cin;
         this.age = age
-        this.lName = lName
     }
 
     async register() {
@@ -44,7 +43,8 @@ export default class Candidate extends User {
                 email: this.email,
                 Uid: this.Uid,
                 password: this.password,
-                role: this.role
+                role: this.role,
+                passTest: this.passTest
             }
             /* ask user if really want to register */
             Swal.fire({
@@ -97,5 +97,12 @@ export default class Candidate extends User {
         })
         
         return id
+    }
+
+    async changeAttrPassTest (id) {
+        await axios.patch("http://localhost:3000/users/"+id ,{ passTest: true})
+        .then((res)=>{
+            
+        })
     }
 }
