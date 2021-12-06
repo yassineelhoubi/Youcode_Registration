@@ -73,5 +73,6 @@ if (logout) {
 
         const user = new User();
         user.logout()
+        location.reload();
     })
 }

@@ -42,6 +42,32 @@ if (testForm) {
             }).then(async (result) => {
                 /* confirmed */
                 if (result.isConfirmed) {
+                    /*  */
+                    let timerInterval
+                    Swal.fire({
+                        title: 'your\'re answers was saved!',
+                        html: 'I will close in <b></b> milliseconds.',
+                        timer: 4000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                                b.textContent = Swal.getTimerLeft()
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            sessionStorage.clear();
+                            location.reload()
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                            console.log('I was closed by the timer')
+                        }
+                    })
+                    /*  */
                     /* send data */
                     const result = new Result(idUser, true, seriousGame, motivationTest, administrationTest1, administrationTest2, administrationTest3, technicalTest)
                     result.add()
