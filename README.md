@@ -30,5 +30,6 @@ Use this command to install the necessary dependencies and Enjoy
 1 . npm install
 ```
 ## Simulation
+![Animation](https://user-images.githubusercontent.com/77664568/144879224-f3094a50-e54e-4408-979d-e56f2309cdc7.gif)
 
 
