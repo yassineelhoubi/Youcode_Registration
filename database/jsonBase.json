@@ -8,54 +8,8 @@
       "password": "password",
       "role": "responsible",
       "id": 1
-    },
-    {
-      "cin": "HH128",
-      "age": "23",
-      "lName": "maacha",
-      "fName": "otmane",
-      "email": "ot@sd.com",
-      "Uid": "u1hn",
-      "password": "716996",
-      "role": "candidate",
-      "passTest": true,
-      "id": 2
-    },
-    {
-      "cin": "jhzejhz",
-      "age": "19",
-      "lName": "kjkjza",
-      "fName": "jkaj",
-      "email": "sq@qs.com",
-      "Uid": "rliq",
-      "password": "p6njz1",
-      "role": "candidate",
-      "passTest": true,
-      "id": 3
     }
   ],
   "result": [
-    {
-      "idUser": 2,
-      "onlineTest": true,
-      "seriousGame": "Elit cupiditate sed",
-      "motivationTest": "Dolores temporibus a",
-      "administrationTest1": "Hic sunt expedita od",
-      "administrationTest2": "Sit quasi qui quibus",
-      "administrationTest3": "Aliqua Qui in proid",
-      "technicalTest": "lorem",
-      "id": 1
-    },
-    {
-      "idUser": 3,
-      "onlineTest": true,
-      "seriousGame": "Nostrud esse laborum",
-      "motivationTest": "Quo dolore deserunt ",
-      "administrationTest1": "Saepe eveniet volup",
-      "administrationTest2": "Sapiente nisi provid",
-      "administrationTest3": "Ab ipsa cupidatat n",
-      "technicalTest": "Vel aut sunt ex obca",
-      "id": 2
-    }
   ]
 }
