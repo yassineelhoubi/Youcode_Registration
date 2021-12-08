@@ -25,9 +25,13 @@ Savoir Programmer la Poo en JS et comprendre l'utilité de chaque objet
 ```
 ## How to run this project
 ```
-Use this command to install the necessary dependencies and Enjoy 
+Use this command to install the necessary dependencies
 
 1 . npm install
+
+And this command to run json server and Enjoy 
+
+2 . json-server --watch .\database\jsonBase.json
 ```
 ## Simulation
 ![Animation](https://user-images.githubusercontent.com/77664568/144879224-f3094a50-e54e-4408-979d-e56f2309cdc7.gif)
